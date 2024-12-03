@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 
-const initialContextValue = {
-  count: 0,
-  total: 0,
-  cartItems: [],
-  removeItem: (id) => {},
-  addItem: (item) => {},
-};
 const CartContext = React.createContext({
   count: 0,
   total: 0,
   cartItems: [],
-  removeItem: (id) => {},
+  removeItem: (iitem) => {},
   addItem: (item) => {},
 });
 
@@ -25,12 +18,19 @@ export const CartProvider = ({ children }) => {
     setTotal((prev) => prev + item.price);
   };
 
-  const removeItem = (id) => {
-    const updatedItems = cartItems.filter((item) => item.id !== id);
+  const removeItem = (item) => {
+    const updatedItems = cartItems.filter((pro) => item.id !== pro.id);
     setCartItems(updatedItems);
 
     setCount((prev) => prev - 1);
     setTotal((prev) => prev - item.price);
+  };
+  const initialContextValue = {
+    count: count,
+    total: total,
+    cartItems: cartItems,
+    removeItem: removeItem,
+    addItem: addItem,
   };
   return (
     <CartContext.Provider value={initialContextValue}>

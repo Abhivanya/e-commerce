@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../store/cartContext";
 import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
-const Header = () => {
+const Header = ({ openCart }) => {
+  const { count } = useContext(CartContext);
   return (
     <>
-      <Nav className="bg-black d-flex justify-content-between  mb-1">
+      <Nav className="bg-black d-flex justify-content-end  mb-1">
         <div
-          className="d-flex justify-content-end  gap-5"
+          className="d-flex position-fixed justify-content-start  gap-5"
           style={{
-            width: "60%",
+            width: "70%",
           }}
         >
           <Nav.Item>
@@ -39,7 +41,7 @@ const Header = () => {
             </Nav.Link>
           </Nav.Item>
         </div>
-        <div>
+        <div onClick={openCart} style={{ textAlign: "end" }}>
           <Nav.Item>
             <Nav.Link
               eventKey="link-2"
@@ -52,7 +54,7 @@ const Header = () => {
                   className="text-info position-absolute  bg-black rounded"
                   style={{ fontSize: "18px", top: "-10px", right: "-13px" }}
                 >
-                  1
+                  {count}
                 </span>
               </div>
             </Nav.Link>

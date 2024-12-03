@@ -1,0 +1,67 @@
+.cart {
+    display: none;
+    position: fixed;
+    border: 1px solid rgb(177, 103, 103);
+    z-index: 20;
+    right: 0;
+    top: 30px;
+    min-height: 95vh;
+    max-width: 500px;
+    padding: 20px 30px;
+    font-size: 18px;
+    background-color: rgb(255, 255, 255);
+}
+
+h2 {
+    font-family: 'Metal Mania';
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+
+.heading {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-size: 18px;
+
+}
+
+.rowItem {
+    border-bottom: 1px solid black;
+    padding-bottom: 4px;
+}
+
+.input {
+    width: 20px;
+    padding: 0;
+    height: 30px;
+    border: 1px solid rgb(0, 204, 255);
+    border-radius: 8%;
+    outline: none;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.total {
+    font-size: 1.2rem;
+}
+
+.total strong {
+    font-size: 1.6rem;
+    margin-right: 5px;
+}
+
+.btn {
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn button {
+    font-size: 20px;
+    background: #56CCF2;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
