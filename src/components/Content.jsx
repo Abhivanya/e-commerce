@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, Container, Button } from "react-bootstrap";
-
+import { Card, Row, Container, Button, Col } from "react-bootstrap";
+import Style from "./Content.module.css";
 const productsArr = [
   {
     title: "Colors",
@@ -36,18 +36,45 @@ const productsArr = [
 ];
 const Content = () => {
   return (
-    <Container>
-      {productsArr.map((product, index) => (
-        <Card key={index + product.name}>
-          <Card.Header>Album {index + 1} </Card.Header>
-          <Card.Img variant="top" src={`${product.imageUrl}`} thumbnail />
-          <Card.Body>
-            {product.price}
-            <Button variant="primary">ADD TO CART</Button>
-          </Card.Body>
-        </Card>
-      ))}
-    </Container>
+    <div>
+      <h2
+        className="align-self-center"
+        style={{
+          fontFamily: "Metal Mania",
+          width: "80%",
+          margin: "35px auto",
+          textAlign: "center",
+          fontSize: "35px",
+          color: "black",
+        }}
+      >
+        Music
+      </h2>
+      <Container fluid="sm" style={{ width: "58%", margin: "0 auto" }}>
+        <Row>
+          {productsArr.map((product, index) => (
+            <Col key={index + new Date()} sm={12} lg={6} className="mb-4">
+              <Card className={`${Style.card} border-0`}>
+                <Card.Body>
+                  <h3 style={{ textAlign: "center" }}> Album {index + 1}</h3>
+                  <div className={Style["image-container"]}>
+                    <Card.Img
+                      src={product.imageUrl}
+                      alt={product.title}
+                      className={Style.cardImg}
+                    />
+                  </div>
+                  <div className={Style.cardFooter}>
+                    ${product.price}
+                    <Button variant="primary">ADD TO CART</Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </div>
   );
 };
 
