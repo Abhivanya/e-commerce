@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
+import Card from "react-bootstrap/Card";
 const Header = () => {
   return (
     <>
@@ -18,9 +19,14 @@ const Header = () => {
       </Nav>
       <Nav className="justify-content-left bg-black " activeKey="/cart">
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Disabled</Nav.Link>
+          <Nav.Link eventKey="link-2">
+            Cart <span>0</span>
+          </Nav.Link>
         </Nav.Item>
       </Nav>
+      <Card bg="secondary" text="light" className="justify-content-center">
+        <Card.Title as="h1">The Generics</Card.Title>
+      </Card>
     </>
   );
 };
