@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { CartProvider } from "./store/cartContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Store from "./pages/Store";
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const closeCart = () => setIsCartOpen(false);
@@ -15,9 +16,10 @@ const App = () => {
       <BrowserRouter>
         <Header openCart={openCart} />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route
-            path="/"
-            element={<Home isCartOpen={isCartOpen} closeCart={closeCart} />}
+            path="/store"
+            element={<Store isCartOpen={isCartOpen} closeCart={closeCart} />}
           />
           <Route path="/about" element={<About />} />
         </Routes>

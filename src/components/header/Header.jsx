@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import CartContext from "../../store/cartContext";
 import Nav from "react-bootstrap/Nav";
+import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 const Header = ({ openCart }) => {
   const { count } = useContext(CartContext);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isStorePage = location.pathname === "/store";
   return (
     <>
       <Nav className="bg-black d-flex justify-content-end  mb-1">
@@ -44,7 +46,7 @@ const Header = ({ openCart }) => {
             </NavLink>
           </Nav.Item>
         </div>
-        {isHomePage ? (
+        {isStorePage ? (
           <div onClick={openCart} style={{ textAlign: "end" }}>
             <Nav.Item>
               <Nav.Link
@@ -80,6 +82,41 @@ const Header = ({ openCart }) => {
         >
           The Generics
         </Card.Title>
+        {isHomePage && (
+          <Card.Body style={{ margin: "0 auto" }}>
+            <Button
+              style={{
+                display: "block",
+                border: "1px solid #56CCF2",
+                padding: "15px 30px",
+                fontSize: "23px",
+                fontWeight: "200",
+                margin: "10px auto",
+                background: "inherit",
+                cursor: "pointer",
+                color: "white",
+              }}
+            >
+              Get our Latest Album
+            </Button>
+            <Button
+              style={{
+                cursor: "pointer",
+                display: "block",
+                border: "2px solid #56CCF2",
+                borderRadius: "50%",
+                padding: "20px",
+                fontSize: "30px",
+                fontWeight: "200",
+                margin: "20px auto",
+                background: "inherit",
+                color: "#56CCF2",
+              }}
+            >
+              ►
+            </Button>
+          </Card.Body>
+        )}
       </Card>
     </>
   );
