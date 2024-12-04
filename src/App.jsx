@@ -1,20 +1,29 @@
 import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header/Header";
-import Content from "./components/Content";
 import Footer from "./components/Footer";
 import { CartProvider } from "./store/cartContext";
-import Cart from "./components/cart/Cart";
+import Home from "./pages/Home";
+import About from "./pages/About";
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const closeCart = () => setIsCartOpen(false);
   const openCart = () => setIsCartOpen(true);
   return (
     <CartProvider>
-      <Cart isCartOpen={isCartOpen} closeCart={closeCart} />
-      <Header openCart={openCart} />
-      <Content />
-      <Footer />
+      <BrowserRouter>
+        <Header openCart={openCart} />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home isCartOpen={isCartOpen} closeCart={closeCart} />}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
     </CartProvider>
   );
 };
