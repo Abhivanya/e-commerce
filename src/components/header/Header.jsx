@@ -45,6 +45,15 @@ const Header = ({ openCart }) => {
               About
             </NavLink>
           </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              to="/contactus"
+              className="text-white "
+              style={{ fontSize: "20px" }}
+            >
+              Contact us
+            </NavLink>
+          </Nav.Item>
         </div>
         {isStorePage ? (
           <div onClick={openCart} style={{ textAlign: "end" }}>

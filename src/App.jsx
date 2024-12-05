@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import { CartProvider } from "./store/cartContext";
 import Home from "./pages/Home";
+import ContactUs from "./pages/ContactUs";
 import About from "./pages/About";
 import Store from "./pages/Store";
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             element={<Store isCartOpen={isCartOpen} closeCart={closeCart} />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
 
         <Footer />
