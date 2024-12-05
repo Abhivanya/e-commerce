@@ -1,13 +1,21 @@
+.container {
+    padding: 20px 0;
+}
+
 .card {
-    padding: 30px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+    max-height: 400px;
 }
 
 .image-container {
     overflow: hidden;
     margin: 0 auto;
 
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
 }
 
 .cardImg {
@@ -22,8 +30,10 @@
 } */
 
 h3 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
+    height: 40px;
+    overflow: hidden;
 }
 
 .cardFooter {

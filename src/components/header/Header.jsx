@@ -9,6 +9,7 @@ const Header = ({ openCart }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isStorePage = location.pathname === "/store";
+  const isProductsPage = location.pathname === "/products";
   return (
     <>
       <Nav className="bg-black d-flex justify-content-end  mb-1">
@@ -25,6 +26,15 @@ const Header = ({ openCart }) => {
               style={{ fontSize: "20px" }}
             >
               Home
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              to="/products"
+              className="text-white "
+              style={{ fontSize: "20px" }}
+            >
+              Products
             </NavLink>
           </Nav.Item>
           <Nav.Item>
@@ -55,7 +65,7 @@ const Header = ({ openCart }) => {
             </NavLink>
           </Nav.Item>
         </div>
-        {isStorePage ? (
+        {isStorePage || isProductsPage ? (
           <div onClick={openCart} style={{ textAlign: "end" }}>
             <Nav.Item>
               <Nav.Link
