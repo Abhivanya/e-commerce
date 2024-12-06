@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDGFVm98_6VmN7odn0DZtuX7Qrnfv7UvNQ",
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCdAftxVD9NsCmZ5dgr8GCpg7eHish48vc",
       {
         method: "POST",
         body: JSON.stringify({
