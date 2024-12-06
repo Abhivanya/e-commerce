@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Store from "./pages/Store";
 import ProductDetails from "./pages/ProductDetails";
 import ProductList from "./components/ProductList";
+import Login from "./pages/Login";
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const closeCart = () => setIsCartOpen(false);
@@ -25,6 +26,7 @@ const App = () => {
             element={<Store isCartOpen={isCartOpen} closeCart={closeCart} />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
           <Route
             exact
             path="/products"

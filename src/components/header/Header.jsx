@@ -57,6 +57,15 @@ const Header = ({ openCart }) => {
           </Nav.Item>
           <Nav.Item>
             <NavLink
+              to="/login"
+              className="text-white "
+              style={{ fontSize: "20px" }}
+            >
+              Login
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
               to="/contactus"
               className="text-white "
               style={{ fontSize: "20px" }}
