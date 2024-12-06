@@ -4,8 +4,11 @@ import CartContext from "../../store/cartContext";
 import Nav from "react-bootstrap/Nav";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import AuthContext from "../../store/authContext";
 const Header = ({ openCart }) => {
   const { count } = useContext(CartContext);
+  const { isLoggedIn, logout } = useContext(AuthContext);
+
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isStorePage = location.pathname === "/store";
@@ -30,7 +33,7 @@ const Header = ({ openCart }) => {
           </Nav.Item>
           <Nav.Item>
             <NavLink
-              to="/products"
+              to={`${isLoggedIn ? "/products" : "/login"}`}
               className="text-white "
               style={{ fontSize: "20px" }}
             >
@@ -39,7 +42,7 @@ const Header = ({ openCart }) => {
           </Nav.Item>
           <Nav.Item>
             <NavLink
-              to="/store"
+              to={`${isLoggedIn ? "/store" : "/login"}`}
               className="text-white "
               style={{ fontSize: "20px" }}
             >
@@ -56,13 +59,23 @@ const Header = ({ openCart }) => {
             </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink
-              to="/login"
-              className="text-white "
-              style={{ fontSize: "20px" }}
-            >
-              Login
-            </NavLink>
+            {!isLoggedIn ? (
+              <NavLink
+                to="/login"
+                className="text-white "
+                style={{ fontSize: "20px" }}
+              >
+                Login
+              </NavLink>
+            ) : (
+              <NavLink
+                className="text-white "
+                style={{ fontSize: "20px" }}
+                onClick={logout}
+              >
+                Logout
+              </NavLink>
+            )}
           </Nav.Item>
           <Nav.Item>
             <NavLink
@@ -74,7 +87,7 @@ const Header = ({ openCart }) => {
             </NavLink>
           </Nav.Item>
         </div>
-        {isStorePage || isProductsPage ? (
+        {(isLoggedIn && isStorePage) || isProductsPage ? (
           <div onClick={openCart} style={{ textAlign: "end" }}>
             <Nav.Item>
               <Nav.Link

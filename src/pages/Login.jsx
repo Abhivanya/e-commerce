@@ -6,8 +6,8 @@ const Login = () => {
   const passwordRef = useRef();
   const emailRef = useRef();
 
+  const { login } = useContext(AuthContext);
   const handleLogin = (e) => {
-    const { login } = useContext(AuthContext);
     e.preventDefault();
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDGFVm98_6VmN7odn0DZtuX7Qrnfv7UvNQ",
@@ -21,17 +21,18 @@ const Login = () => {
       }
     )
       .then((response) => {
-        const res = response.json();
-        if (!response.ok) {
-          throw new Error("Something went wrong");
-        }
+        return response.json();
       })
       .then((res) => {
+        if (res.error) {
+          throw new Error(res.error);
+        }
         console.log(res);
         login(res.idToken);
       })
       .catch((err) => {
         alert(err.message);
+        console.log(err);
       });
   };
   return (
